@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#101513" />
+  <meta name="description" content="Frostfall: The Shattered Crown — an original open-world fantasy adventure." />
+  <title>Frostfall — The Shattered Crown</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="game-root">
+    <canvas id="world"></canvas>
+    <div class="vignette"></div>
+    <div class="grain"></div>
+    <header class="topline"><span class="sigil">✧</span><span>ASTERFALL · NORTHERN REACH</span><span class="topline-rule"></span><span class="chapter">A TALE OF THE OLD NORTH</span></header>
+
+    <section id="creation" class="creation">
+      <div class="creation-left">
+        <div class="eyebrow"><span class="eyebrow-line"></span> YOUR STORY BEGINS</div>
+        <h1>FROSTFALL</h1>
+        <div class="subtitle">THE SHATTERED CROWN</div>
+        <p class="intro">The old roads are waking. Beyond the pines, a kingdom waits to be remembered.</p>
+        <div class="section-label">01 <span>CHOOSE YOUR PEOPLE</span></div>
+        <div class="race-list" id="race-list"></div>
+        <div class="race-lore" id="race-lore"></div>
+        <div class="character-fields">
+          <label>YOUR NAME<input id="hero-name" value="Wanderer" maxlength="18" autocomplete="off" /></label>
+          <label>VOICE<select id="hero-voice"><option>Feminine</option><option>Masculine</option></select></label>
+        </div>
+        <button id="begin" class="begin-btn"><span>BEGIN YOUR JOURNEY</span><span class="button-arrow">↗</span></button>
+        <div class="save-note"><span>✦</span> YOUR LEGEND IS YOURS TO WRITE</div>
+      </div>
+      <div class="creation-right">
+        <div class="preview-caption"><span>THE FIRST BREATH</span><span id="preview-race">NORD</span></div>
+        <div class="preview-hint">A face to meet the long road.</div>
+      </div>
+      <div class="creation-footer"><span>AN ORIGINAL FANTASY ADVENTURE</span><span>© THE WILD NORTH · 4E 201</span></div>
+    </section>
+
+    <section id="hud" class="hud hidden">
+      <div class="hud-top-left"><div class="quest-kicker"><span class="quest-dot"></span> CURRENT QUEST</div><div class="quest-title" id="quest-title">THE SHATTERED CROWN</div><div class="quest-objective" id="quest-objective">Follow the old road to Hearthglen.</div></div>
+      <div class="hud-top-right"><div class="location-kicker">DISCOVERED LOCATION</div><div id="location-name">THE NORTHERN REACH</div><div class="weather"><span class="weather-icon">☀</span> CLEAR · 7:42 AM</div></div>
+      <div class="crosshair"><span></span><i></i></div>
+      <div class="bottom-left"><div class="health-row"><span>VITALITY</span><span id="health-value">100</span></div><div class="meter"><div id="health-fill"></div></div><div class="resource-row"><span>✦ <b id="gold-count">12</b> SEPTIMS</span><span id="race-badge">NORD</span></div></div>
+      <div class="bottom-center"><div class="spell-slot"><span class="slot-key">Q</span><span class="spell-icon">✧</span></div><div class="attack-tip">LEFT CLICK <span>·</span> WARDING FLAME</div></div>
+      <div class="bottom-right"><div class="map-frame"><canvas id="minimap" width="140" height="140"></canvas><span class="map-player">▲</span><span class="map-label">ASTERFALL</span></div><div class="map-subtitle">THE NORTHERN REACH</div></div>
+      <div id="toast" class="toast"></div>
+      <div class="controls-hint"><span>W A S D</span> MOVE <i>·</i> <span>MOUSE</span> LOOK <i>·</i> <span>SPACE</span> JUMP <i>·</i> <span>E</span> INTERACT</div>
+    </section>
+
+    <div id="interact-prompt" class="interact-prompt hidden"><span class="keycap">E</span><span id="interact-text">Speak to the traveler</span></div>
+    <div id="dialogue" class="dialogue hidden"><div class="dialogue-mark">❧</div><div class="dialogue-name" id="dialogue-name">MARA THE WAYFARER</div><p id="dialogue-text">The snow's been whispering names again. Yours, I think.</p><button id="dialogue-close">CONTINUE <span>↗</span></button></div>
+    <div id="journal" class="journal hidden"><div class="journal-inner"><button id="journal-close" class="close-btn">×</button><div class="eyebrow">FIELD NOTES · 01</div><h2>THE SHATTERED CROWN</h2><p>The old road leads east, through the pines and over the river. Hearthglen's lanterns should be visible before dusk. Someone there may know why the mountain has begun to sing.</p><div class="journal-objective">◈ &nbsp; Follow the old road to Hearthglen</div><div class="journal-controls">W A S D &nbsp; Walk &nbsp; · &nbsp; Mouse &nbsp; Look &nbsp; · &nbsp; E &nbsp; Speak &nbsp; · &nbsp; J &nbsp; Journal</div></div></div>
+    <div id="mobile-controls" class="mobile-controls hidden"><div id="joystick" class="joystick"><div class="joy-knob"></div></div><button id="mobile-use" class="mobile-action">E</button><button id="mobile-cast" class="mobile-cast">✧</button></div>
+    <div id="start-overlay" class="start-overlay hidden"><div class="pause-panel"><div class="eyebrow">THE NORTH REMEMBERS</div><h2>JOURNEY PAUSED</h2><p>Your path is waiting.</p><button id="resume">RETURN TO THE WILD <span>↗</span></button><button id="restart" class="text-button">RETURN TO CHARACTER CREATION</button></div></div>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
